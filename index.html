@@ -315,12 +315,21 @@ function soruCikart() {
 let gizliButon = document.getElementById("gizliButon");
 let kalpMektup = document.getElementById("kalpMektup");
 
+let basiliMi = false; // Kullanıcının butona basılı tutup tutmadığını kontrol etmek için
+let uzunBasma; // setTimeout'u kontrol etmek için değişken
+
 gizliButon.addEventListener("mousedown", function() {
-    setTimeout(function() {
-        kalpMektup.style.display = "block"; // Mektubu göster
-    }, 1500); // 1.5 saniye uzun basma süresi
+    basiliMi = true;
+    
+    uzunBasma = setTimeout(function() {
+        if (basiliMi) { // Hala basılı tutuluyorsa
+            kalpMektup.style.display = "block"; // Mektubu göster
+        }
+    }, 1500); // 1.5 saniye basılı tutma süresi
 });
 
 gizliButon.addEventListener("mouseup", function() {
-    kalpMektup.style.display = "none"; // Mektubu gizle
+    basiliMi = false;
+    clearTimeout(uzunBasma); // Eğer erken bırakılırsa mektup açılmasın
+});
 });</script></body></html>
