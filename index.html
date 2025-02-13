@@ -92,7 +92,7 @@ body, html {
     padding: 0;
     font-family: 'Comic Sans MS', cursive, sans-serif;
     text-align: center;
-    background-color: #ffe6f2; /* Açık pembe tatlı bir arka plan */
+    background-color: #ffe6f2;
 }
 
 /* Parallax Bölümleri */
@@ -155,7 +155,7 @@ body, html {
 }
 
 #oyunAlani {
-    width: 100%;
+    width: 50%;
     height: 300px;
     position: relative;
     background-image: url('Bulut.png'); /* Hafif bulutlu bir gökyüzü görünümü */
@@ -268,7 +268,7 @@ function oyunBaslat() {
 
     // Belirli aralıklarla kalp oluştur
     let oyunInterval = setInterval(() => {
-        if (puan == 250) { // Örnek puan eşiği
+        if (puan == 200) { // Örnek puan eşiği
             clearInterval(oyunInterval);
             soruCikart();
         } else {
@@ -303,7 +303,7 @@ function kalpOlustur() {
 function soruCikart() {
     let soru = prompt("Soru:Sen benim neyimsinnn (tek bir şey seçemedim bu yüzden genel olarak söyledim ona göre cevap vermen lazimmm)");
     if (soru && soru.trim() === "herşey") {
-        alert("Doğru bildim bebemmm harikasınnnn");
+        alert("Doğru bildinn bebemmm harikasınnnn");
         document.getElementById("oyunAlani").innerHTML = '<img src= "kalpli.gif" alt="Sürpriz">';
     } else {
         alert("Üzme kendini tekrar dene bebemm(cevap tek bir şey yazmamak için genel olarak belirttimm herşeyim benimmm)");
